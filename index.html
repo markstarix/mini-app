@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>DRAGOS HACK 1.0</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loadingScreen" class="loading-screen">
+    <div class="hack-container">
+      <h1 class="title">DRAGOS HACK <span class="version">1.0</span> 🚀</h1>
+      
+      <div class="status" id="statusText">CONNECTING TO 1WIN SERVERS...</div>
+      <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+      </div>
+      
+      <div class="log" id="log"></div>
+    </div>
+  </div>
+
+  <!-- Main App (пока скрыто) -->
+  <div id="mainApp" class="main-app hidden">
+    <header>
+      <h1>DRAGOS HACK 1.0</h1>
+      <p>AI-POWERED 1WIN MINES PREDICTOR</p>
+    </header>
+
+    <button id="getSignalBtn" class="signal-btn">
+      ⚡ GET FREE SIGNAL
+    </button>
+
+    <div class="grid" id="minesGrid"></div>
+
+    <div class="info">
+      <p id="status" class="status">Готов к новому сигналу</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Mines — Demo</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ─── Header ─────────────────────────────────────────── -->
+  <header class="header">
+    <div class="logo">
+      <span class="logo-icon">💣</span>
+      <span class="logo-text">MINES</span>
+      <span class="demo-pill">DEMO</span>
+    </div>
+    <div class="balance-chip">
+      <span class="coin-icon">🪙</span>
+      <span id="balance" class="balance-val">10 000</span>
+    </div>
+  </header>
+
+  <!-- ─── Multiplier bar ─────────────────────────────────── -->
+  <div class="mult-bar">
+    <div class="mult-col">
+      <span class="mult-lbl">Множитель</span>
+      <span id="multiplier" class="mult-num">1.00×</span>
+    </div>
+    <div class="mult-divider"></div>
+    <div class="mult-col right">
+      <span class="mult-lbl">Потенциал</span>
+      <span id="potential" class="mult-pot">— 🪙</span>
+    </div>
+  </div>
+
+  <!-- ─── Game grid ──────────────────────────────────────── -->
+  <div class="grid-wrap">
+    <div id="grid" class="grid"></div>
+  </div>
+
+  <!-- ─── Controls ──────────────────────────────────────── -->
+  <div class="controls">
+
+    <!-- Mine count -->
+    <div class="ctrl-section">
+      <span class="ctrl-label">💣 Количество мин</span>
+      <div class="seg-group" id="mineGroup">
+        <button class="seg active" data-val="1">1</button>
+        <button class="seg" data-val="3">3</button>
+        <button class="seg" data-val="5">5</button>
+        <button class="seg" data-val="8">8</button>
+        <button class="seg" data-val="12">12</button>
+      </div>
+    </div>
+
+    <!-- Bet amount -->
+    <div class="ctrl-section">
+      <span class="ctrl-label">🪙 Ставка (демо-монеты)</span>
+      <div class="seg-group" id="betGroup">
+        <button class="seg" data-val="50">50</button>
+        <button class="seg active" data-val="100">100</button>
+        <button class="seg" data-val="250">250</button>
+        <button class="seg" data-val="500">500</button>
+      </div>
+    </div>
+
+    <!-- Hint info box -->
+    <div class="hint-box" id="hintBox">
+      <div class="hint-box-row">
+        <span class="hint-title">🔮 Случайная подсказка</span>
+        <span id="hintsLeft" class="hint-badge">3 / 3</span>
+      </div>
+      <p class="hint-note">* Подсказки генерируются случайно — только для развлечения, не гарантируют результат</p>
+    </div>
+
+    <!-- Action buttons -->
+    <div class="action-row">
+      <button id="startBtn" class="act-btn btn-start">🚀 Старт</button>
+      <button id="hintBtn"  class="act-btn btn-hint"  disabled>🔮 Hint</button>
+      <button id="cashBtn"  class="act-btn btn-cash"  disabled>💰 Забрать</button>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-item">
+        <span id="statWins" class="stat-val green">0</span>
+        <span class="stat-lbl">Победы</span>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat-item">
+        <span id="statLosses" class="stat-val red">0</span>
+        <span class="stat-lbl">Поражения</span>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat-item">
+        <span id="statProfit" class="stat-val neutral">±0</span>
+        <span class="stat-lbl">Прибыль</span>
+      </div>
+    </div>
+
+  </div><!-- /controls -->
+
+  <!-- ─── Footer disclaimer ─────────────────────────────── -->
+  <footer class="footer">
+    <p>🎮 Только для развлечения · Без реальных ставок · Случайная генерация · 18+</p>
+  </footer>
+
+</div><!-- /app -->
+
+<!-- Toast notification -->
+<div id="toast" class="toast"></div>
+
+<!-- Confetti canvas (win effect) -->
+<canvas id="confetti" class="confetti-canvas"></canvas>
+
+<script src="js/app.js"></script>
+</body>
+</html>

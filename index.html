@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+  <title>MINES × AVIATOR MOD</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════
+     SCREEN: BOOT LOADER
+═══════════════════════════════════ -->
+<div id="sLoad" class="screen">
+  <div class="boot-wrap">
+    <div class="boot-ring"></div>
+    <div class="boot-icon">💣</div>
+    <h1 class="boot-name">MINES × AVIATOR</h1>
+    <div class="boot-engine">AI PREDICTION ENGINE <span class="tl">V3.0</span></div>
+    <div class="boot-bar-track"><div id="bootBar" class="boot-bar-fill"></div></div>
+    <div id="bootReady" class="boot-ready"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     SCREEN: LANGUAGE SELECT
+═══════════════════════════════════ -->
+<div id="sLang" class="screen hidden">
+  <div class="lang-wrap">
+    <div class="lang-rocket">🚀</div>
+    <h1 class="lang-title">MINES × AVIATOR</h1>
+    <p class="lang-sub">Choose your language · भाषा चुनें · Escolha o idioma</p>
+    <div class="lang-list">
+      <button class="lang-row" data-lang="en"><span class="lcode">🇬🇧</span><span class="lname">English</span><span class="larr">→</span></button>
+      <button class="lang-row" data-lang="hi"><span class="lcode">🇮🇳</span><span class="lname">हिन्दी</span><span class="larr">→</span></button>
+      <button class="lang-row" data-lang="es"><span class="lcode">🇪🇸</span><span class="lname">Español</span><span class="larr">→</span></button>
+      <button class="lang-row" data-lang="pt"><span class="lcode">🇧🇷</span><span class="lname">Português</span><span class="larr">→</span></button>
+    </div>
+    <p class="lang-hint">You can change this later in Settings</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     SCREEN: MAIN APP
+═══════════════════════════════════ -->
+<div id="sMain" class="screen hidden">
+
+  <!-- ── TAB: HOME ──────────────────────── -->
+  <div class="page active" id="pHome">
+    <div class="page-scroll">
+      <div class="page-topbar">
+        <span class="lang-pill" id="langPill">GB</span>
+        <div class="online-badge">🟢 <span id="onlineCount">4,823</span> ONLINE</div>
+      </div>
+
+      <!-- Hero -->
+      <div class="home-hero">
+        <div class="hero-icons">💣 ✈️</div>
+        <h1 class="home-title" data-i18n="appName">MINES × AVIATOR</h1>
+        <p class="home-sub" data-i18n="appTagline">AI-POWERED PREDICTION ENGINE</p>
+        <div class="badges-row">
+          <span class="badge badge-live">● LIVE</span>
+          <span class="badge badge-free" data-i18n="badgeFree">FREE</span>
+          <span class="badge badge-wallet">🪙 <span id="homeCoins">0</span> <span data-i18n="coins">COINS</span></span>
+        </div>
+      </div>
+
+      <!-- Quick action cards -->
+      <div class="quick-actions">
+        <button class="qa-card mines-qa" id="btnHomeMines">
+          <span class="qa-icon">💣</span>
+          <span class="qa-label">MINES</span>
+          <span class="qa-sub" data-i18n="btnFreeSignal">GET SIGNAL</span>
+        </button>
+        <button class="qa-card av-qa" id="btnHomeAv">
+          <span class="qa-icon">✈️</span>
+          <span class="qa-label">AVIATOR</span>
+          <span class="qa-sub" data-i18n="btnGetAvSignal">GET SIGNAL</span>
+        </button>
+      </div>
+
+      <!-- Stats bar -->
+      <div class="home-stats-bar">
+        <div class="hstat"><div class="hstat-v gold">$413K+</div><div class="hstat-l" data-i18n="lEarned">EARNED</div></div>
+        <div class="hstat-div"></div>
+        <div class="hstat"><div class="hstat-v purple-txt">3.35M</div><div class="hstat-l" data-i18n="lSignals">SIGNALS</div></div>
+        <div class="hstat-div"></div>
+        <div class="hstat"><div class="hstat-v tl">94%</div><div class="hstat-l">WIN RATE</div></div>
+      </div>
+
+      <!-- How it works -->
+      <div class="card">
+        <h3 class="card-head" data-i18n="howTitle">HOW IT WORKS</h3>
+        <div class="steps">
+          <div class="step"><span class="step-n">1</span><div><b data-i18n="s1h">Pick your game</b><p data-i18n="s1t">Choose Mines or Aviator mode</p></div></div>
+          <div class="step"><span class="step-n">2</span><div><b data-i18n="s2h">Run AI scan</b><p data-i18n="s2t">Neural pattern engine reads the board</p></div></div>
+          <div class="step"><span class="step-n">3</span><div><b data-i18n="s3h">Follow the signal</b><p data-i18n="s3t">Play exactly as the AI indicates</p></div></div>
+        </div>
+      </div>
+
+      <!-- AI Assistant -->
+      <div class="card">
+        <h3 class="card-head">🤖 <span data-i18n="aiTitle">AI ASSISTANT</span></h3>
+        <div class="ai-presets">
+          <button class="ai-tag" data-q="best" data-i18n="q1">BEST STRATEGY?</button>
+          <button class="ai-tag" data-q="accurate" data-i18n="q2">HOW ACCURATE?</button>
+          <button class="ai-tag" data-q="safest" data-i18n="q3">SAFEST MINES?</button>
+          <button class="ai-tag" data-q="aviator" data-i18n="q4">AVIATOR TIPS?</button>
+        </div>
+        <div class="ai-response hidden" id="aiResponse"></div>
+        <div class="ai-input-row">
+          <input id="aiInput" class="ai-input" type="text" placeholder="Ask anything..."/>
+          <button id="aiSend" class="ai-send-btn" data-i18n="send">SEND</button>
+        </div>
+      </div>
+
+      <!-- Unlock Premium -->
+      <div class="card prem-cta-card">
+        <div class="prem-cta-glow"></div>
+        <h3 class="gold-title">⭐ <span data-i18n="premTitle">UNLOCK PREMIUM</span></h3>
+        <p data-i18n="premDesc">Get 95%+ accuracy signals, unlimited scans, and priority AI support.</p>
+        <button class="big-btn gold-glow" id="btnGetAccess" data-i18n="btnGetAccess">GET ACCESS</button>
+        <p class="fine-print" data-i18n="premNote">REGISTER & DEPOSIT VIA OUR LINK — VIP AUTO-ACTIVATES WITHIN 60 SECONDS</p>
+        <p class="fine-print tl" data-i18n="vipOnly">VIP MEMBERS ONLY</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TAB: MINES ─────────────────────── -->
+  <div class="page" id="pMines">
+    <div class="page-scroll">
+
+      <div class="mines-head">
+        <div class="live-badge">● LIVE · MINES</div>
+        <h2 class="mines-title" data-i18n="minesTitle">MINES MOD AI</h2>
+        <p class="mines-sub" data-i18n="minesSub">NEURAL PATTERN ANALYSIS</p>
+        <button class="link-id-btn" id="btnLinkId">🔗 <span data-i18n="linkId">LINK PROFILE ID</span></button>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card"><div class="sv gold" id="sEarned">$413,203</div><div class="sl" data-i18n="lEarned">EARNED</div></div>
+        <div class="stat-card"><div class="sv tl" id="sSignals">3.35M</div><div class="sl" data-i18n="lSignals">SIGNALS</div></div>
+        <div class="stat-card"><div class="sv gold" id="sStreak">0</div><div class="sl" data-i18n="lStreak">STREAK</div></div>
+        <div class="stat-card"><div class="sv tl" id="sToday">0</div><div class="sl" data-i18n="lToday">TODAY</div></div>
+      </div>
+
+      <div class="section-label" data-i18n="mineCountLabel">◇ MINE COUNT</div>
+      <div class="mine-sel" id="mineSel">
+        <button class="mine-opt" data-m="1"><span class="mon">1</span><span class="mol" data-i18n="mine">MINE</span></button>
+        <button class="mine-opt" data-m="3"><span class="mon">3</span><span class="mol" data-i18n="mines">MINES</span></button>
+        <button class="mine-opt active" data-m="5"><span class="mon">5</span><span class="mol" data-i18n="mines">MINES</span></button>
+        <button class="mine-opt" data-m="7"><span class="mon">7</span><span class="mol" data-i18n="mines">MINES</span></button>
+      </div>
+
+      <div id="mineIdle">
+        <button class="big-btn teal-glow" id="btnGetSignal" data-i18n="btnGetSignal">GET SIGNAL</button>
+      </div>
+
+      <div id="mineCooldown" class="hidden">
+        <div class="countdown-box" id="countdownBox">NEXT IN --:--</div>
+        <p class="cooldown-note" data-i18n="cooldownNote">Free signals refresh every 8 hours. Upgrade to VIP for unlimited.</p>
+      </div>
+
+      <div id="mineResult" class="hidden">
+        <div class="result-bar">
+          <span class="sig-id">SIG-<span id="sigId">000</span></span>
+          <span class="sig-ready tl">✦ SIGNAL READY</span>
+        </div>
+        <div class="signal-grid" id="signalGrid"></div>
+        <div class="row-hot-labels" id="rowHotLabels"></div>
+        <div class="vip-row">
+          <span class="vip-tag-sm" data-i18n="vipOnly">□ VIP ONLY</span>
+          <button class="vip-unlock-sm" id="btnVipMines" data-i18n="unlockVip">UNLOCK VIP</button>
+        </div>
+        <div class="card promo-card">
+          <h4 data-i18n="unlimitedTitle">UNLOCK UNLIMITED SIGNALS</h4>
+          <p data-i18n="unlimitedDesc">VIP members see all safe tiles + exact confidence %. One deposit unlocks unlimited signals forever.</p>
+          <button class="big-btn gold-glow" id="btnUnlimitedLink" data-i18n="btnUnlimited">UNLOCK UNLIMITED → USE OUR LINK</button>
+        </div>
+        <button class="big-btn teal-glow" id="btnNewSignal" data-i18n="btnNewSignal">GET NEW SIGNAL</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── TAB: AVIATOR ───────────────────── -->
+  <div class="page" id="pFly">
+    <div class="page-scroll">
+
+      <div class="mines-head">
+        <div class="live-badge live-badge-purple">● LIVE · AVIATOR</div>
+        <h2 class="mines-title purple-txt" data-i18n="flyTitle">AVIATOR AI ✈️</h2>
+        <p class="mines-sub" data-i18n="flySub">MULTIPLIER PREDICTION ENGINE</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card"><div class="sv gold" id="avEarned">$287,451</div><div class="sl" data-i18n="lEarned">EARNED</div></div>
+        <div class="stat-card"><div class="sv purple-txt" id="avSigs">1.82M</div><div class="sl" data-i18n="lSignals">SIGNALS</div></div>
+        <div class="stat-card"><div class="sv gold" id="avStreakStat">0</div><div class="sl" data-i18n="lStreak">STREAK</div></div>
+        <div class="stat-card"><div class="sv purple-txt" id="avTodayStat">0</div><div class="sl" data-i18n="lToday">TODAY</div></div>
+      </div>
+
+      <div class="section-label">◇ RISK LEVEL</div>
+      <div class="risk-sel" id="riskSel">
+        <button class="risk-opt" data-r="low"><span class="risk-n">LOW</span><span class="risk-sub">1–2×</span></button>
+        <button class="risk-opt active" data-r="auto"><span class="risk-n">AUTO</span><span class="risk-sub">AI</span></button>
+        <button class="risk-opt" data-r="med"><span class="risk-n">MED</span><span class="risk-sub">2–5×</span></button>
+        <button class="risk-opt" data-r="high"><span class="risk-n">HIGH</span><span class="risk-sub">5×+</span></button>
+      </div>
+
+      <!-- Idle state -->
+      <div id="avIdle">
+        <button class="big-btn purple-glow" id="btnGetAvSignal">
+          ✈️ <span data-i18n="btnGetAvSignal">GET AVIATOR SIGNAL</span>
+        </button>
+      </div>
+
+      <!-- Cooldown state -->
+      <div id="avCooldown" class="hidden">
+        <div class="countdown-box countdown-purple" id="avCountdownBox">NEXT IN --:--</div>
+        <p class="cooldown-note" data-i18n="cooldownNote">Free signals refresh every 8 hours. Upgrade to VIP for unlimited.</p>
+      </div>
+
+      <!-- Result state -->
+      <div id="avResult" class="hidden">
+        <div class="result-bar">
+          <span class="sig-id">SIG-<span id="avSigId">000</span></span>
+          <span class="sig-ready purple-txt">✦ SIGNAL READY</span>
+        </div>
+
+        <!-- Main prediction card -->
+        <div class="card av-pred-card">
+          <div class="av-pred-header">PREDICTED SAFE CASHOUT</div>
+          <div class="av-pred-mult" id="avPredMult">--</div>
+
+          <div class="av-mult-bar-wrap">
+            <div class="av-mult-bar">
+              <div class="av-mult-safe" id="avSafeBar" style="width:50%"></div>
+              <div class="av-mult-danger" id="avDangerBar" style="width:50%"></div>
+            </div>
+            <div class="av-mult-bar-labels">
+              <span>1×</span>
+              <span id="avSafeBarLabel" class="purple-txt">--</span>
+              <span>10×</span>
+            </div>
+          </div>
+
+          <div class="av-metrics-row">
+            <div class="av-metric">
+              <div class="av-metric-val green-txt" id="avConfVal">--</div>
+              <div class="av-metric-lbl">CONFIDENCE</div>
+            </div>
+            <div class="av-metric">
+              <div class="av-metric-val purple-txt" id="avRiskVal">--</div>
+              <div class="av-metric-lbl">RISK MODE</div>
+            </div>
+            <div class="av-metric av-metric-vip">
+              <div class="av-metric-val muted">🔒 VIP</div>
+              <div class="av-metric-lbl">CRASH POINT</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent predictions -->
+        <div class="card">
+          <h4 class="card-head">📈 RECENT PREDICTIONS</h4>
+          <div class="av-history" id="avPredHistory"></div>
+        </div>
+
+        <div class="vip-row">
+          <span class="vip-tag-sm" data-i18n="vipOnly">□ VIP ONLY</span>
+          <button class="vip-unlock-sm vip-unlock-purple" id="btnVipAv" data-i18n="unlockVip">UNLOCK VIP</button>
+        </div>
+
+        <div class="card promo-card">
+          <h4 data-i18n="unlimitedTitle">UNLOCK UNLIMITED SIGNALS</h4>
+          <p data-i18n="unlimitedDesc">VIP members see exact crash point + confidence %. One deposit unlocks unlimited forever.</p>
+          <button class="big-btn gold-glow" id="btnUnlimitedAvLink" data-i18n="btnUnlimited">UNLOCK UNLIMITED → USE OUR LINK</button>
+        </div>
+
+        <button class="big-btn purple-glow" id="btnNewAvSignal">
+          ✈️ <span data-i18n="btnNewSignal">GET NEW SIGNAL</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── TAB: REFER ─────────────────────── -->
+  <div class="page" id="pRefer">
+    <div class="page-scroll">
+      <h2 class="refer-title tl" data-i18n="referTitle">REFER & EARN</h2>
+      <p class="refer-sub" data-i18n="referSub">INVITE FRIENDS · STACK COINS · UNLOCK BONUS SIGNALS</p>
+
+      <div class="card wallet-card">
+        <div class="wallet-lbl" data-i18n="walletBalance">WALLET BALANCE</div>
+        <div class="wallet-amount"><span id="referCoins">0</span> <span data-i18n="coins">COINS</span></div>
+        <p class="wallet-note" data-i18n="walletNote">200 coins = 1 bonus signal</p>
+      </div>
+
+      <div class="card">
+        <h4 class="card-head">🔗 <span data-i18n="yourRefLink">YOUR REFERRAL LINK</span></h4>
+        <p class="card-desc" data-i18n="refDesc">Share this link. When a friend uses their first signal, you earn +100 coins + 1 bonus signal.</p>
+        <div class="ref-row">
+          <span class="ref-link-text" id="refLinkText">loading...</span>
+          <button class="copy-btn" id="btnCopyRef" data-i18n="copy">COPY</button>
+        </div>
+        <button class="share-tg-btn" id="btnShareRef">📲 <span data-i18n="shareOnTg">SHARE ON TELEGRAM</span></button>
+      </div>
+
+      <div class="card">
+        <h4 class="card-head">📊 <span data-i18n="yourStats">YOUR STATS</span></h4>
+        <div class="ref-stats-grid">
+          <div class="ref-stat"><div id="refFriends" class="ref-sv">0</div><div class="ref-sl" data-i18n="friendsReferred">FRIENDS REFERRED</div></div>
+          <div class="ref-stat"><div id="refBonusSigs" class="ref-sv">0</div><div class="ref-sl" data-i18n="bonusSigs">BONUS SIGNALS</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h4 class="card-head">⚡ <span data-i18n="spendCoins">SPEND COINS</span></h4>
+        <p class="card-desc" data-i18n="spendDesc">Convert coins into extra Mines signals. 200 coins = 1 signal. Bonus signals stack with your daily free limit.</p>
+        <button class="big-btn spend-btn" id="btnSpend" data-i18n="btnSpend">SPEND 200 COINS → 1 SIGNAL</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TAB: SETTINGS ──────────────────── -->
+  <div class="page" id="pSettings">
+    <div class="page-scroll">
+      <h2 class="settings-head" data-i18n="settingsTitle">SETTINGS</h2>
+
+      <div class="card">
+        <h4 class="card-head">🎯 <span data-i18n="profileTitle">YOUR PROFILE ID</span></h4>
+        <p class="card-desc" data-i18n="profileDesc">Link your account ID so the AI can tailor signals to your play history.</p>
+        <input id="profileInput" class="setting-input" type="number" placeholder="e.g. 331435717"/>
+        <div class="setting-btn-row">
+          <button class="save-btn" id="btnSaveProfile" data-i18n="save">SAVE</button>
+          <button class="clear-btn" id="btnClearProfile" data-i18n="clear">CLEAR</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h4 class="card-head">💎 <span data-i18n="accountStatus">ACCOUNT STATUS</span></h4>
+        <p class="card-desc" data-i18n="accountStatusDesc">VIP unlocks 95%+ accuracy, unlimited scans, and priority support.</p>
+        <span class="status-badge free" id="statusBadge" data-i18n="freeTier">FREE TIER</span>
+      </div>
+
+      <div class="card">
+        <h4 class="card-head">🌐 <span data-i18n="language">LANGUAGE</span></h4>
+        <div class="lang-chips" id="langChips">
+          <button class="lchip" data-lang="en">🇬🇧 English</button>
+          <button class="lchip" data-lang="hi">🇮🇳 हिन्दी</button>
+          <button class="lchip" data-lang="es">🇪🇸 Español</button>
+          <button class="lchip" data-lang="pt">🇧🇷 Português</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h4 class="card-head">🔄 <span data-i18n="resetTitle">RESET COOLDOWNS</span></h4>
+        <p class="card-desc" data-i18n="resetDesc">Clear signal cooldown timers to get a fresh signal immediately.</p>
+        <button class="big-btn" id="btnResetCooldown" style="background:rgba(239,68,68,0.15);border:1px solid rgba(239,68,68,0.4);color:#ef4444;" data-i18n="btnResetCooldown">RESET COOLDOWNS</button>
+      </div>
+
+      <div class="card">
+        <h4 class="card-head">ℹ️ APP VERSION</h4>
+        <p class="card-desc">MINES × AVIATOR MOD V3.0</p>
+        <p class="card-desc" style="margin-top:6px;color:var(--muted)">Neural Pattern Engine · AI Prediction System</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── BOTTOM NAV ─────────────────────── -->
+  <nav class="tab-nav">
+    <button class="tab-btn active" data-tab="pHome"><span class="ti">🏠</span><span class="tl-label" data-i18n="navHome">HOME</span></button>
+    <button class="tab-btn" data-tab="pMines"><span class="ti">💣</span><span class="tl-label" data-i18n="navMines">MINES</span></button>
+    <button class="tab-btn tab-btn-center" data-tab="pFly"><span class="ti nav-av-icon">✈</span><span class="tl-label" data-i18n="navFly">AVIATOR</span></button>
+    <button class="tab-btn" data-tab="pRefer"><span class="ti">👥</span><span class="tl-label" data-i18n="navRefer">REFER</span></button>
+    <button class="tab-btn" data-tab="pSettings"><span class="ti">⚙️</span><span class="tl-label" data-i18n="navSettings">SETTINGS</span></button>
+  </nav>
+
+</div><!-- /sMain -->
+
+<!-- ═══════════════════════════════════
+     MODAL: SCAN ANIMATION
+═══════════════════════════════════ -->
+<div id="modalScan" class="scan-modal hidden">
+  <div id="scanMatrix" class="scan-matrix"></div>
+  <div class="scan-ui">
+    <div class="scan-corners">
+      <span id="scanXY" class="scan-corner-text">X:28 Y:14</span>
+      <span id="scanSec" class="scan-corner-text">SEC 48</span>
+    </div>
+    <div id="scanModeTag" class="scan-mode-tag">💣 MINES SCAN</div>
+    <div class="scan-grid-container" id="scanGridContainer">
+      <div id="scanGrid" class="scan-grid"></div>
+    </div>
+
+    <!-- Aviator-specific scan UI (shown instead of grid for aviator mode) -->
+    <div id="avScanUi" class="av-scan-ui hidden">
+      <div class="av-scan-rounds-label">LAST ROUNDS</div>
+      <div class="av-scan-rounds-row" id="avScanRoundsRow"></div>
+      <canvas id="avScanChart" class="av-scan-chart"></canvas>
+      <div class="av-scan-stats-row">
+        <div class="av-ss"><div id="avSSAvg" class="av-ss-v">--</div><div class="av-ss-l">AVG MULT</div></div>
+        <div class="av-ss"><div id="avSSTrend" class="av-ss-v">--</div><div class="av-ss-l">TREND</div></div>
+        <div class="av-ss"><div id="avSSConf" class="av-ss-v">--</div><div class="av-ss-l">CONF</div></div>
+        <div class="av-ss"><div id="avSSRounds" class="av-ss-v">--</div><div class="av-ss-l">ROUNDS</div></div>
+      </div>
+    </div>
+
+    <p class="scan-status-text" id="scanStatusText">NEURAL SCAN IN PROGRESS</p>
+    <p class="scan-status-text2" id="scanSubText">ANALYZING PATTERNS</p>
+    <div class="scan-bottom">
+      <div class="scan-bottom-row">
+        <span id="scanCh" class="scan-ch">CH 00 0%</span>
+        <span class="scan-lock-lbl">NEURAL LOCK</span>
+      </div>
+      <div class="scan-bar-track"><div id="scanBar" class="scan-bar-fill"></div></div>
+    </div>
+    <div class="scan-scanning-label">SCANNING_</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     MODAL: PREMIUM UNLOCK
+═══════════════════════════════════ -->
+<div id="modalPrem" class="prem-modal hidden">
+  <div class="prem-box">
+    <button class="prem-close-btn" id="btnClosePrem">×</button>
+    <h3 class="prem-modal-title">🔑 <span data-i18n="premTitle">UNLOCK PREMIUM</span></h3>
+    <p class="prem-modal-sub" data-i18n="premModalSub">Unlimited signals · 95%+ accuracy</p>
+    <div class="prem-step-box">
+      <div class="prem-step-lbl" data-i18n="step1">STEP 1</div>
+      <p data-i18n="premStep1Text">Register or deposit using OUR link — this auto-activates VIP. Do not use your existing account directly.</p>
+      <button class="big-btn teal-glow" id="btnRegDeposit" data-i18n="btnRegDeposit">REGISTER & DEPOSIT VIA OUR LINK →</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="toast" class="toast"></div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
